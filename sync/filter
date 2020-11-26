@@ -1,0 +1,14 @@
+- .git
+- .gitignore
+- .DS_Store
+- .npm
+- .history
+- .firebase
+- .tmp
+- .vscode
+- .stfolder
+- .stversions
+- .stignore
+- .venv
+- node_modules
+- bower_components
