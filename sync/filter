@@ -1,6 +1,7 @@
 - .git
 - .gitignore
 - .DS_Store
+- .exe
 - .npm
 - .history
 - .firebase

@@ -16,7 +16,6 @@ guardPath-%:
 	@if [ -z '$($(*))' ]; then \
 		echo '$(*) must be set, please add it in .env' && exit 1; \
 	else \
-		echo '$(*):$($(*))   DRY is $(DRY)'; \
 		if [ ! -e '$($(*))' ]; then \
 			echo '$(*): $($(*)) doest not exist, please verify your path' && exit 1; \
 		fi \
@@ -26,7 +25,16 @@ guardPath-%:
 # ------------------------
 
 # ALL
-all: sync-bin sync-ssh sync-documents sync-pictures sync-music sync-marie sync-videos sync-workspaces sync-projects
+all: sync-bin \
+	sync-ssh \
+	sync-config \
+	sync-documents \
+	sync-marie \
+	sync-music \
+	sync-pictures \
+	sync-projects \
+	sync-videos \
+	sync-workspaces
 .PHONY: all
 
 # BIN
@@ -37,17 +45,30 @@ all: sync-bin sync-ssh sync-documents sync-pictures sync-music sync-marie sync-v
 %-ssh: SRC = ~/.ssh/
 %-ssh: DST = $(DEST)/.ssh
 
+# CONFIG
+%-config: SRC = ~/config/
+%-config: DST = $(DEST)/config
+
 # DOCUMENTS
 %-documents: SRC = ~/Documents/
 %-documents: DST = $(DEST)/Documents
 
-# IMAGES
-%-pictures: SRC = ~/Pictures/
-%-pictures: DST = $(DEST)/Pictures
+# MARIE
+%-marie: SRC = ~/Marie/
+%-marie: DST = $(DEST)/Marie
 
 # MUSIC
 %-music: SRC = ~/Music/
 %-music: DST = $(DEST)/Music
+
+# PICTURES
+%-pictures: SRC = ~/Pictures/
+%-pictures: DST = $(DEST)/Pictures
+
+# PROJECTS
+%-projects: SRC = ~/Projects/
+%-projects: DST = $(DEST)/Projects
+%-projects: FILTER = -f 'merge ./sync/filter-projects'
 
 # VIDEOS
 %-videos: SRC = ~/Videos/
@@ -56,15 +77,6 @@ all: sync-bin sync-ssh sync-documents sync-pictures sync-music sync-marie sync-v
 # WORKSPACES
 %-workspaces: SRC = ~/Workspaces/
 %-workspaces: DST = $(DEST)/Workspaces
-
-# PROJECTS
-%-projects: SRC = ~/Projects/
-%-projects: DST = $(DEST)/Projects
-%-projects: FILTER = -f 'merge ./sync/filter-projects'
-
-# MARIE
-%-marie: SRC = ~/Marie/
-%-marie: DST = $(DEST)/Marie
 
 # SYNC
 # ------------------------
