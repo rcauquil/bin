@@ -2,11 +2,15 @@
 
 ## Networking
 
-### Firewalld
-
 Tumbleweed comes, by default, with a "None In, All Out" firewall meaning any services you attempt to connect to on the server would be blocked by the firewall.
 
+### Firewalld
+
+[Firewalld](https://firewalld.org/) provides a dynamically managed firewall with support for network/firewall zones that define the trust level of network connections or interfaces.
+
 #### Plex
+
+Put the following to `/etc/firewalld/services/plexmediaserver` 
 
 ```
 <?xml version="1.0" encoding="utf-8"?>

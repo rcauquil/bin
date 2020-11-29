@@ -6,6 +6,7 @@
 
 ```
 fpath=( ~/bin/functions "${fpath[@]}" )
+autoload -Uz $fpath[1]/*(.:t)
 ```
 
 ### Adding a function
