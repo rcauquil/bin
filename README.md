@@ -2,6 +2,12 @@
 
 ## Functions
 
+### Add path to .zshrc
+
+```
+fpath=( ~/bin/functions "${fpath[@]}" )
+```
+
 ### Adding a function
 
 ```
