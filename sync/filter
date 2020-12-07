@@ -7,9 +7,9 @@
 - .firebase
 - .tmp
 - .vscode
-- .stfolder
++ .stfolder
 - .stversions
-- .stignore
++ .stignore
 - .venv
 - node_modules
 - bower_components
