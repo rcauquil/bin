@@ -2,5 +2,5 @@
 
 ## Summary
 
-* [Opensuse](opensuse.md)
+* [Fuji](fuji.md)
 * [Services](services.md)
